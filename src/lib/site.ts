@@ -13,6 +13,8 @@ export const SITE_ABOUT =
 export const FOUNDER_NAME = 'Julio Cesar Martin';
 export const FOUNDER_URL = 'https://depre.net';
 
+export const GITHUB_URL = 'https://github.com/dephelion';
+
 export const KEYWORDS = [
   'Dephelion',
   'Julio Cesar Martin',
