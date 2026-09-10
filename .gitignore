@@ -1,0 +1,19 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next
+/out
+next-env.d.ts
+*.tsbuildinfo
+
+# testing
+/coverage
+
+# local tooling / editor history
+.history
+.local
+.claude/settings.local.json
+
+# os
+**/.DS_Store

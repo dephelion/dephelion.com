@@ -1,0 +1,50 @@
+{
+  "name": "dephelion.com",
+  "version": "1.0.0",
+  "description": "Dephelion — a single-page, statically generated Next.js site with a WebGL black hole.",
+  "private": true,
+  "license": "MIT",
+  "author": "Julio Cesar Martin (https://depre.net)",
+  "homepage": "https://dephelion.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dephelion/website.git"
+  },
+  "bugs": "https://github.com/dephelion/website/issues",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "jest"
+  },
+  "dependencies": {
+    "next": "^14.2.35",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "three": "0.160.1"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "10.4.0",
+    "@testing-library/jest-dom": "6.4.8",
+    "@testing-library/react": "16.0.1",
+    "@testing-library/user-event": "14.5.2",
+    "@types/jest": "29.5.13",
+    "@types/node": "20.14.2",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "@types/three": "0.160.0",
+    "autoprefixer": "10.4.20",
+    "eslint": "8.57.1",
+    "eslint-config-next": "^14.2.35",
+    "eslint-config-prettier": "9.1.0",
+    "jest": "29.7.0",
+    "jest-environment-jsdom": "29.7.0",
+    "postcss": "8.4.47",
+    "prettier": "3.3.3",
+    "tailwindcss": "3.4.13",
+    "typescript": "5.5.4"
+  }
+}
