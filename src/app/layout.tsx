@@ -3,6 +3,7 @@ import { JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import BlackHoleScene from '@/components/BlackHoleScene';
 import Footer from '@/components/Footer';
+import GitHubButton from '@/components/GitHubButton';
 import {
   FOUNDER_NAME,
   FOUNDER_URL,
@@ -94,6 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify([organizationLd, siteLd]) }}
         />
         <BlackHoleScene />
+        <GitHubButton />
         {children}
         <Footer />
       </body>
