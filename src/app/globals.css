@@ -243,3 +243,143 @@ footer p {
     animation: none;
   }
 }
+
+/* Long-form pages. The body is a single fixed viewport behind the WebGL scene,
+   so a document scrolls inside its own container rather than scrolling the page. */
+.doc {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  height: 100svh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  /* Bottom clears the fixed footer. The top only needs breathing room: the
+     fixed GitHub button floats over the card's empty top-right corner, while
+     the back link sits top-left, so they never meet. */
+  padding: clamp(1.25rem, 3.5vh, 2rem) 1.25rem 5.5rem;
+}
+
+.doc-card {
+  /* The px ceiling matters more than the ch: this is a monospace face, so a
+     character is wide and `ch` alone runs away on a large screen. */
+  max-width: min(96ch, 1100px);
+  margin: 0 auto;
+  /* Less above than below: the back link and heading already carry their own
+     space, so equal padding reads as a gap at the top. */
+  padding: clamp(1.1rem, 2.5vw, 1.6rem) clamp(1.5rem, 4vw, 2.9rem) clamp(1.75rem, 4.5vw, 3rem);
+  /* Nearly opaque on purpose: a star field showing through body text is the
+     difference between a design and something people give up reading. */
+  background: rgba(0, 0, 0, 0.88);
+  border: 1px solid var(--edge);
+  border-radius: 16px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.doc-back {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+
+.doc-back:hover {
+  color: var(--accent);
+}
+
+.doc-card h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+
+.doc-card h2 {
+  margin: 2.4rem 0 0.8rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg);
+}
+
+.doc-card p,
+.doc-card li {
+  color: var(--fg-dim);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.doc-card p {
+  margin: 0 0 1rem;
+}
+
+.doc-card strong {
+  color: var(--fg);
+  font-weight: 700;
+}
+
+.doc-lead {
+  margin: 0.9rem 0 1.8rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+
+.doc-updated {
+  margin: 0.7rem 0 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+
+.doc-intro {
+  margin: 1.4rem 0 0.5rem;
+  color: var(--fg);
+}
+
+.doc-card ul {
+  margin: 0 0 1rem;
+  padding-left: 1.15rem;
+}
+
+.doc-card li {
+  margin-bottom: 0.55rem;
+}
+
+.doc-links {
+  list-style: none;
+  padding-left: 0;
+}
+
+.doc-cta {
+  display: inline-block;
+  margin-top: 0.4rem;
+}
+
+.doc-cta:hover {
+  text-decoration: none;
+}
+
+.doc-note {
+  font-size: 0.9rem;
+  color: var(--fg-dim);
+}
+
+/* The hero sizes these to sit far below a headline. Inside a document they are
+   part of the paragraph flow, so the hero's top margin reads as a broken gap. */
+.doc-card .cta,
+.doc-card .contact-reveal {
+  margin-top: 0;
+}
+
+/* The row a button sits in: close to the text that introduced it. */
+.doc-action {
+  margin: 1.2rem 0 0;
+}
