@@ -76,8 +76,8 @@ export default function LensingPrivacyPage() {
       <p>
         <strong>One kind of network request exists: downloading the language model.</strong> The
         first time Lensing needs to score a feed it downloads the model that does the comparison,
-        about 30 MB, from the Hugging Face CDN at huggingface.co. Your browser caches it, and later
-        sessions use the cached copy.
+        about 30 MB, from Hugging Face at huggingface.co, which redirects the larger files to its
+        storage CDN at hf.co. Your browser caches it, and later sessions use the cached copy.
       </p>
       <p>
         Be aware of what that implies: like any file download, it tells Hugging Face&rsquo;s servers
