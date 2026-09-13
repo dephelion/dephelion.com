@@ -1,18 +1,30 @@
 'use client';
 
 import { useCallback, useRef, useState } from 'react';
-import { decodeEmail } from '@/lib/contact';
+import { decodeEmail, decodeLensingEmail } from '@/lib/contact';
 
 type CopyState = 'idle' | 'copied' | 'error';
 
-export default function ContactButton() {
+/**
+ * Which inbox, as a string rather than a function: this is a client component and
+ * a server page cannot hand it a callback.
+ */
+export type Inbox = 'company' | 'lensing';
+
+export default function ContactButton({
+  inbox = 'company',
+  label = 'Contact',
+}: {
+  inbox?: Inbox;
+  label?: string;
+} = {}) {
   const [open, setOpen] = useState(false);
   const [copyState, setCopyState] = useState<CopyState>('idle');
   const emailRef = useRef<HTMLSpanElement>(null);
   const resetTimer = useRef<ReturnType<typeof setTimeout>>();
 
   // Assembled only once the visitor asks for it, never during prerender.
-  const email = open ? decodeEmail() : '';
+  const email = open ? (inbox === 'lensing' ? decodeLensingEmail() : decodeEmail()) : '';
 
   const copy = useCallback(async () => {
     const flash = (state: CopyState) => {
@@ -37,7 +49,7 @@ export default function ContactButton() {
   if (!open) {
     return (
       <button type="button" className="cta" aria-expanded={false} onClick={() => setOpen(true)}>
-        Contact
+        {label}
       </button>
     );
   }

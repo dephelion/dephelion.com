@@ -4,6 +4,7 @@ import './globals.css';
 import BlackHoleScene from '@/components/BlackHoleScene';
 import Footer from '@/components/Footer';
 import GitHubButton from '@/components/GitHubButton';
+import { OG_IMAGE, TWITTER_IMAGE } from '@/lib/seo';
 import {
   FOUNDER_NAME,
   FOUNDER_URL,
@@ -52,11 +53,14 @@ export const metadata: Metadata = {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     locale: 'en_US',
+    // Declared rather than left to the file convention, which emits no alt text.
+    images: [OG_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
+    images: [TWITTER_IMAGE],
   },
 };
 
