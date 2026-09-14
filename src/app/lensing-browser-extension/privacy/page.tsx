@@ -50,8 +50,9 @@ export default function LensingPrivacyPage() {
 
       <h2>What Lensing stores on your device</h2>
       <p>
-        Kept in your browser&rsquo;s local extension storage. It stays on your device, is not synced
-        to your other devices, and is never transmitted.
+        Kept in your browser&rsquo;s local extension storage. Lensing never syncs it to your other
+        devices and never transmits it. You can copy it to another device yourself, with Export
+        below.
       </p>
       <ul>
         <li>
@@ -70,6 +71,14 @@ export default function LensingPrivacyPage() {
         embeddings can be partially reversed toward the original text. Treat it as a compact, lossy
         trace of a post you rated, not as an anonymous number. It never leaves your device, at most
         50 up-ratings and 50 down-ratings are kept per topic line, and the oldest fall off first.
+      </p>
+      <p>
+        <strong>Exporting and importing.</strong> The Backup row in the popup writes your settings
+        and your thumb ratings to a file you choose, and reads one back on another device. That file
+        holds the same embeddings described above, so treat it as personal: anyone who opens it sees
+        your topics and holds a lossy trace of the posts you rated. Lensing writes it only when you
+        click Export &mdash; there is no automatic backup, no schedule, and nowhere for it to go but
+        the disk you save it to. Importing a file replaces the settings and ratings already stored.
       </p>
 
       <h2>What Lensing sends</h2>
@@ -106,11 +115,12 @@ export default function LensingPrivacyPage() {
       <h2>Deleting your data</h2>
       <ul>
         <li>
-          <strong>Clear tuning</strong>, under Advanced in the popup, deletes every thumb rating.
+          <strong>Clear tuning</strong>, under &ldquo;Learn from my thumbs&rdquo; in the popup,
+          deletes every thumb rating.
         </li>
         <li>
-          <strong>Reset</strong>, under Advanced, deletes every thumb rating and restores the
-          default settings.
+          <strong>Reset</strong>, under &ldquo;Start over&rdquo;, deletes every thumb rating and
+          restores the default settings.
         </li>
         <li>
           <strong>Uninstalling Lensing</strong> deletes everything it stored, including your topics.
