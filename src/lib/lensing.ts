@@ -21,7 +21,7 @@ export const LENSING_BROWSERS = 'Chrome, Edge, Brave and other Chrome-based brow
 export const LENSING_STORE_URL = '';
 
 /** Shown on the policy pages. Bump on any material change. */
-export const LENSING_POLICY_DATE = '13 September 2026';
+export const LENSING_POLICY_DATE = '14 September 2026';
 
 export const LENSING_KEYWORDS = [
   'Lensing',
