@@ -17,8 +17,9 @@ export const LENSING_SUMMARY =
 
 export const LENSING_BROWSERS = 'Chrome, Edge, Brave and other Chrome-based browsers';
 
-/** Empty until the store listing is live; every install link checks it first. */
-export const LENSING_STORE_URL = '';
+/** Set once the store listing goes live; every install link checks it first. */
+export const LENSING_STORE_URL =
+  'https://chromewebstore.google.com/detail/lensing/ahlojbckjlffcfdhmkjepaglnhhpmdck';
 
 /** Shown on the policy pages. Bump on any material change. */
 export const LENSING_POLICY_DATE = '14 September 2026';
