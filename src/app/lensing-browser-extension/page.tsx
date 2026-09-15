@@ -55,9 +55,9 @@ export default function LensingPage() {
         <p className="doc-lead">{LENSING_TAGLINE}</p>
 
         <p className="doc-intro">
-          <strong>Lensing is a free add-on for your web browser.</strong> You tell it what you came
-          to read about, and it fades out everything else in your feed — so the posts you actually
-          wanted are the ones you notice.
+          <strong>Lensing is a free browser extension powered by local AI.</strong> You tell it what
+          you came to read about, and it fades out everything else in your feed — so the posts you
+          actually wanted are the ones you notice.
         </p>
 
         <h2>What it does</h2>

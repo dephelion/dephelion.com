@@ -5,11 +5,11 @@ export const LENSING_NAME = 'Lensing';
 /** Leading and trailing slash, matching the site's `trailingSlash` export. */
 export const LENSING_PATH = '/lensing-browser-extension/';
 export const LENSING_URL = `${SITE_URL}${LENSING_PATH}`;
-export const LENSING_TAGLINE = 'Blur what you did not come here to read';
+export const LENSING_TAGLINE = 'Local AI feed cleaner for social media';
 
 /** Kept under ~160 characters so search results show it whole. */
 export const LENSING_DESCRIPTION =
-  'A free browser extension for Chrome, Edge and Brave. Pick your topics and Lensing blurs the posts on X, LinkedIn and Reddit that are not about them.';
+  'A free browser extension for Chrome, Edge and Brave. Local AI blurs distracting posts on X, LinkedIn and Reddit — nothing leaves your device.';
 
 /** The plain-words version, for people rather than crawlers. */
 export const LENSING_SUMMARY =
@@ -26,9 +26,10 @@ export const LENSING_POLICY_DATE = '14 September 2026';
 export const LENSING_KEYWORDS = [
   'Lensing',
   'browser extension',
-  'feed filter',
+  'feed cleaner',
   'content blurring',
-  'on-device AI',
+  'local AI',
+  'distraction',
   'privacy',
   'X',
   'LinkedIn',
