@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 import { SITE_TITLE, SITE_URL } from './site';
-import { decodeEmail, decodeFeedlensEmail } from './contact';
-import { FEEDLENS_STORE_URL, FEEDLENS_URL } from './feedlens';
+import { decodeEmail, decodeUfeedEmail } from './contact';
+import { UFEED_STORE_URL, UFEED_URL } from './ufeed';
 
 describe('site constants', () => {
   it('exposes an https canonical URL with no trailing slash', () => {
@@ -29,26 +29,26 @@ describe('contact address obfuscation', () => {
   });
 });
 
-describe('feedlens constants', () => {
+describe('ufeed constants', () => {
   it('builds the product URL under the canonical site URL', () => {
-    expect(FEEDLENS_URL).toBe(`${SITE_URL}/feedlens-browser-extension/`);
+    expect(UFEED_URL).toBe(`${SITE_URL}/ufeed-browser-extension/`);
   });
 
   it('keeps the store link empty until the listing is live, so no dead CTA ships', () => {
-    expect(FEEDLENS_STORE_URL === '' || FEEDLENS_STORE_URL.startsWith('https://')).toBe(true);
+    expect(UFEED_STORE_URL === '' || UFEED_STORE_URL.startsWith('https://')).toBe(true);
   });
 });
 
-describe('feedlens address obfuscation', () => {
+describe('ufeed address obfuscation', () => {
   // Split so this file carries no contiguous address for a harvester either.
   const expected = 'contact' + '@' + 'dephelion' + '.com';
 
   it('decodes to the product address at runtime', () => {
-    expect(decodeFeedlensEmail()).toBe(expected);
+    expect(decodeUfeedEmail()).toBe(expected);
   });
 
   it('is a different inbox from the company one', () => {
-    expect(decodeFeedlensEmail()).not.toBe(decodeEmail());
+    expect(decodeUfeedEmail()).not.toBe(decodeEmail());
   });
 
   it('never stores the address as a scrapeable literal in the source', () => {

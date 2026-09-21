@@ -1,0 +1,133 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import {
+  UFEED_BROWSERS,
+  UFEED_DESCRIPTION,
+  UFEED_KEYWORDS,
+  UFEED_NAME,
+  UFEED_PATH,
+  UFEED_STORE_URL,
+  UFEED_TAGLINE,
+  UFEED_URL,
+} from '@/lib/ufeed';
+import { breadcrumbLd, pageMetadata } from '@/lib/seo';
+import { SITE_NAME, SITE_URL } from '@/lib/site';
+
+export const metadata: Metadata = pageMetadata({
+  title: `${UFEED_NAME} — ${UFEED_TAGLINE}`,
+  description: UFEED_DESCRIPTION,
+  path: UFEED_PATH,
+  keywords: UFEED_KEYWORDS,
+});
+
+const appLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: UFEED_NAME,
+  url: UFEED_URL,
+  applicationCategory: 'BrowserApplication',
+  operatingSystem: 'Chrome',
+  description: UFEED_DESCRIPTION,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  publisher: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+};
+
+export default function UFeedPage() {
+  return (
+    <main className="doc">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            appLd,
+            breadcrumbLd([
+              { name: SITE_NAME, path: '/' },
+              { name: UFEED_NAME, path: UFEED_PATH },
+            ]),
+          ]),
+        }}
+      />
+      <article className="doc-card">
+        <Link className="doc-back" href="/">
+          &larr; {SITE_NAME}
+        </Link>
+        <h1>{UFEED_NAME}</h1>
+        <p className="doc-lead">{UFEED_TAGLINE}</p>
+
+        <p className="doc-intro">
+          <strong>uFeed is a free browser extension powered by local AI.</strong> You tell it what
+          you came to read about, and it fades out everything else in your feed — so the posts you
+          actually wanted are the ones you notice.
+        </p>
+
+        <h2>What it does</h2>
+        <p>
+          You write a few topics in plain words: <em>football</em>, <em>cooking</em>,{' '}
+          <em>my industry</em>. As you scroll, uFeed quietly blurs the posts that are not about
+          them.
+        </p>
+        <p>
+          Nothing is deleted and nothing is taken away. A blurred post is still there, and one click
+          brings it back — you have not lost the choice, you have just stopped making it by
+          accident. You can change your topics, loosen it, tighten it, or switch it off whenever you
+          like.
+        </p>
+
+        <h2>Where it works</h2>
+        <p>
+          On <strong>X (Twitter), LinkedIn and Reddit</strong>, in <strong>{UFEED_BROWSERS}</strong>
+          . It costs nothing, and it does not touch any other website you visit.
+        </p>
+
+        <h2>It stays on your computer</h2>
+        <p>
+          Everything happens inside your own browser. There is no sign-up, no account, and no
+          company server to send anything to. What you read is never uploaded, never saved and never
+          recorded anywhere — we could not see it even if we wanted to.
+        </p>
+        <p className="doc-note">
+          uFeed downloads one file the first time you use it, about the size of a short podcast, so
+          it can understand what posts are about without asking anyone. After that it works offline.
+        </p>
+
+        <h2>What it cannot do</h2>
+        <p>
+          It reads words, not pictures — so a photo posted with no caption is a guess. It
+          understands English. And it sorts by subject, not by quality: a brilliant post and a dull
+          one about the same thing will both stay.
+        </p>
+        <p>
+          It will get some posts wrong. You can give any post a thumbs up or down to teach it what
+          you meant, and that stays on your computer too.
+        </p>
+
+        <h2>Install</h2>
+        {UFEED_STORE_URL ? (
+          <p className="doc-action">
+            <a className="cta doc-cta" href={UFEED_STORE_URL} rel="noopener noreferrer">
+              Add to Chrome
+            </a>
+          </p>
+        ) : (
+          <p className="doc-note">
+            uFeed is being reviewed by the Chrome Web Store. The install button will appear here as
+            soon as it is approved.
+          </p>
+        )}
+
+        <h2>Policies</h2>
+        <ul className="doc-links">
+          <li>
+            <Link href="/ufeed-browser-extension/privacy/">Privacy policy</Link>
+          </li>
+          <li>
+            <Link href="/ufeed-browser-extension/terms/">Terms of use</Link>
+          </li>
+          <li>
+            <Link href="/ufeed-browser-extension/contact/">Contact and support</Link>
+          </li>
+        </ul>
+      </article>
+    </main>
+  );
+}
