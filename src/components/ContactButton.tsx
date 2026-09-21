@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useRef, useState } from 'react';
-import { decodeEmail, decodeFeedlensEmail } from '@/lib/contact';
+import { decodeEmail, decodeUfeedEmail } from '@/lib/contact';
 
 type CopyState = 'idle' | 'copied' | 'error';
 
@@ -9,7 +9,7 @@ type CopyState = 'idle' | 'copied' | 'error';
  * Which inbox, as a string rather than a function: this is a client component and
  * a server page cannot hand it a callback.
  */
-export type Inbox = 'company' | 'feedlens';
+export type Inbox = 'company' | 'ufeed';
 
 export default function ContactButton({
   inbox = 'company',
@@ -24,7 +24,7 @@ export default function ContactButton({
   const resetTimer = useRef<ReturnType<typeof setTimeout>>();
 
   // Assembled only once the visitor asks for it, never during prerender.
-  const email = open ? (inbox === 'feedlens' ? decodeFeedlensEmail() : decodeEmail()) : '';
+  const email = open ? (inbox === 'ufeed' ? decodeUfeedEmail() : decodeEmail()) : '';
 
   const copy = useCallback(async () => {
     const flash = (state: CopyState) => {

@@ -29,8 +29,8 @@ export default function DocPage({
         />
       ) : null}
       <article className="doc-card">
-        <Link className="doc-back" href="/feedlens-browser-extension/">
-          &larr; FeedLens
+        <Link className="doc-back" href="/ufeed-browser-extension/">
+          &larr; uFeed
         </Link>
         <h1>{title}</h1>
         {updated ? <p className="doc-updated">Effective {updated}</p> : null}
