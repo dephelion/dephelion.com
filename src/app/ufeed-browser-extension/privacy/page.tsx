@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import DocPage from '@/components/DocPage';
-import { UFEED_NAME, UFEED_PATH, UFEED_POLICY_DATE } from '@/lib/ufeed';
+import { UFEED_NAME, UFEED_PATH, UFEED_PRIVACY_DATE } from '@/lib/ufeed';
 import { breadcrumbLd, pageMetadata } from '@/lib/seo';
 import { SITE_NAME } from '@/lib/site';
 
@@ -26,7 +26,7 @@ export default function UFeedPrivacyPage() {
     <DocPage
       breadcrumbs={breadcrumbs}
       title="Privacy policy"
-      updated={UFEED_POLICY_DATE}
+      updated={UFEED_PRIVACY_DATE}
       intro="uFeed blurs posts in your social feed that are not about topics you chose. It does this on your own device. This policy describes everything it reads, stores and sends."
     >
       <h2>Short version</h2>
@@ -106,10 +106,16 @@ export default function UFeedPrivacyPage() {
           <strong>Storage.</strong> To keep your settings and, if you turn it on, your thumb ratings
           on your device.
         </li>
+        <li>
+          <strong>Offscreen</strong> (Chrome only). To keep a hidden extension page open for the
+          shared multilingual model worker. The page receives post text from uFeed for scoring; it
+          cannot read the website itself.
+        </li>
       </ul>
       <p>
-        uFeed requests no other permission. It cannot see your browsing history, your other tabs,
-        your bookmarks, your passwords or your identity.
+        The offscreen permission does not give uFeed access to other websites or additional data. It
+        does not change what uFeed stores or sends. uFeed cannot see your browsing history, your
+        bookmarks, your passwords or your identity.
       </p>
 
       <h2>Deleting your data</h2>

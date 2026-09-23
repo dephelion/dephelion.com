@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import DocPage from '@/components/DocPage';
-import { UFEED_NAME, UFEED_PATH, UFEED_POLICY_DATE } from '@/lib/ufeed';
+import { UFEED_NAME, UFEED_PATH, UFEED_TERMS_DATE } from '@/lib/ufeed';
 import { breadcrumbLd, pageMetadata } from '@/lib/seo';
 import { SITE_NAME } from '@/lib/site';
 
@@ -26,7 +26,7 @@ export default function UFeedTermsPage() {
     <DocPage
       breadcrumbs={breadcrumbs}
       title="Terms of use"
-      updated={UFEED_POLICY_DATE}
+      updated={UFEED_TERMS_DATE}
       intro={`These terms cover the ${UFEED_NAME} browser extension, published by ${SITE_NAME}. Installing or using it means accepting them. If you do not, uninstall it — that is the whole of the arrangement between us.`}
     >
       <h2>What you may do</h2>
