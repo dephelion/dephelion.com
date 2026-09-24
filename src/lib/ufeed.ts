@@ -21,8 +21,9 @@ export const UFEED_BROWSERS = 'Chrome, Edge, Brave and other Chrome-based browse
 export const UFEED_STORE_URL =
   'https://chromewebstore.google.com/detail/ahlojbckjlffcfdhmkjepaglnhhpmdck';
 
-/** Shown on the policy pages. Bump on any material change. */
-export const UFEED_POLICY_DATE = '14 September 2026';
+/** Shown on the policy pages. Bump the relevant date on any material change. */
+export const UFEED_PRIVACY_DATE = '23 September 2026';
+export const UFEED_TERMS_DATE = '14 September 2026';
 
 export const UFEED_KEYWORDS = [
   'uFeed',
